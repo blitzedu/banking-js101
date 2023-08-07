@@ -30,6 +30,11 @@ function processCommand(command) {
     const commandAction = cmdSegments[0]
     const commandData = cmdSegments[1]
 
+    if (cmdSegments.length > 2) {
+        console.log("Invalid command!")
+        return;
+    }
+
     if (commandAction === "deposit") {
         if (!verifyPassword()) return;
 
@@ -74,6 +79,16 @@ function processCommand(command) {
         } else {
             console.log("Incorrect password!")
         }
+    } else if (commandAction === "help") {
+        console.log("Available commands:")
+        console.log("deposit <amount>")
+        console.log("withdraw <amount>")
+        console.log("balance")
+        console.log("loan <amount>")
+        console.log("pay <amount>")
+        console.log("loan-balance")
+        console.log("verify <password>")
+        console.log("quit")
     }
 }
 
